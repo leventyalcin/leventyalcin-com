@@ -1,0 +1,33 @@
+variable "domain_name" {}
+
+variable "cf_allow_tls_1_3" {}
+variable "cf_always_online" {}
+variable "cf_always_use_https" {}
+variable "cf_automatic_https_rewrites" {}
+variable "cf_block_user_agents" {}
+variable "cf_blocked_paths" {}
+variable "cf_brotli" {}
+variable "cf_browser_cache_ttl" {}
+variable "cf_browser_check" {}
+variable "cf_cache_level" {}
+variable "cf_challenge_ttl" {}
+variable "cf_development_mode" {}
+variable "cf_email_obfuscation" {}
+variable "cf_hotlink_protection" {}
+variable "cf_http3" {}
+variable "cf_ip_geolocation" {}
+variable "cf_js_challenge_country_codes" {}
+variable "cf_jump_start" {}
+variable "cf_min_tls_version" {}
+variable "cf_minify_css" {}
+variable "cf_minify_html" {}
+variable "cf_minify_js" {}
+variable "cf_plan_type" {}
+variable "cf_security_level" {}
+variable "cf_ssl_encryption_mode" {}
+variable "cf_zone_type" {}
+variable "git_info" {}
+variable "git_user" {}
+variable "tags" {
+  default = {}
+}

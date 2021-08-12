@@ -1,0 +1,34 @@
+---
+name: Build and deploy
+on:
+  push:
+    branches:
+      - master
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
+  CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+  ENV: 'prod'
+  TF_BACKEND_BUCKET: ${{ secrets.TF_BACKEND_BUCKET }}
+  TF_BACKEND_KEY: ${{ secrets.TF_BACKEND_KEY }}
+  TF_BACKEND_REGION: ${{ secrets.TF_BACKEND_REGION }}
+
+jobs:
+  check:
+    name: provision-build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.3
+      - name: Run IaC against the Platform(s)
+        run: bash -a ./build_paas.sh
+      - name: Build static pages and deploy
+        run: bash -a ./build_hugo.sh
