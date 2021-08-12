@@ -59,7 +59,8 @@ build(){
 
     # shellcheck disable=SC1090,SC1091
     source "$OGL_PATH/opsgang.sourcelibs" || return 1
-    git_vars
+    git_vars; [[ -z "${GIT_USER:-}" ]] && [[ -n "${GITHUB_ACTOR:-}" ]] && export GIT_USER="$GITHUB_ACTOR"
+
     pre_run_checks || return 1
     tf_init || return 1
     tf_apply || return 1
