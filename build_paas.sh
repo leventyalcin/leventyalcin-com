@@ -50,7 +50,12 @@ tf_apply(){
     else
         no_unpushed_changes || return 1
     fi
-    terraform apply "$__plan_file" || return 1
+    if [[ -n "${CI:-}" ]]; then
+        i >&2 "Applying terraform plan"
+        terraform apply "$__plan_file" || return 1
+    else
+        yellow_i >&2 "Command is not running under the CI server. Skipping"
+    fi
     cd "$REPO_ROOT" || return 1
 }
 
