@@ -32,7 +32,7 @@ locals {
 }
 
 module "site" {
-  source = "git@github.com:opsgang/terraform-cloudflare-aws-static-website.git?ref=0.0.1"
+  source = "github.com/opsgang/terraform-cloudflare-aws-static-website?ref=0.0.1"
 
   domain_name                   = var.domain_name
   cf_allow_tls_1_3              = var.cf_allow_tls_1_3
