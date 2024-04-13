@@ -8,7 +8,7 @@ languageCode = 'en-gb'
     HeaderUsername = "levops"
     HeaderHostname = "cloud"
     About = "Hello! I am Levent. Your usual Cloud Platform Engineer. I came here to drink milk and automate everything, and I've just finished my milk!"
-    ProfilePicture = "https://en.gravatar.com/userimage/14633204/208e79879fcab7bbadf654c3f64de43c.png"
+    ProfilePicture = "https://en.gravatar.com/userimage/14633204/2622de60590dafd7651654b8a6443a60.png?size=256"
 
     keywords = "blog,sre,devops,devsecops,automation,personal" # Site keywords.
 
