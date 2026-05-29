@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-executables-have-shebangs
@@ -12,19 +12,19 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.10
+    rev: v1.5.6
     hooks:
       - id: forbid-crlf
       - id: forbid-tabs
         exclude: hugo/themes/
-  - repo: https://github.com/opsgang/pre-commit.git
+  - repo: https://github.com/kintoandar/pre-commit.git
   # this has to be changed to original repo once the PR has been merged
   # which fixes the checks for tfvars files
-    rev: fix/file-type-instead-extension
+    rev: v2.1.2
     hooks:
       - id: terraform_fmt
   - repo: https://github.com/markdownlint/markdownlint
-    rev: master
+    rev: v0.15.0
     hooks:
       - id: markdownlint_docker
         entry: markdownlint/markdownlint --rules ~MD013
